@@ -50,7 +50,7 @@ export default function RootLayout({
         <PageTransition>
           {/* Header */}
           <header className="w-full relative" style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A' }}>
-            <div className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: '800px' }}>
+            <div className="w-full mx-auto px-5 sm:px-8 pt-6 pb-4" style={{ maxWidth: '800px' }}>
               <HeaderLogoVisible />
             </div>
             <div className="absolute top-4 right-6 z-10">

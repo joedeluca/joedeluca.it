@@ -45,16 +45,15 @@ export default function AboutClient() {
             Writes in English. Works in Sardinia.
           </p>
 
-          <div style={{ marginTop: '2rem' }}>
+          <div className="pigeon-section" style={{ marginTop: '2rem' }}>
+            <h2 style={h2Style}>Why a pigeon?</h2>
             <Image
               src="/oed.png"
               alt=""
               width={160}
               height={200}
-              className="float-right ml-8 mb-4"
-              style={{ objectFit: 'contain', minHeight: 'clamp(150px, 20vw, 200px)', width: 'auto' }}
+              className="pigeon-image"
             />
-            <h2 style={h2Style}>Why a pigeon?</h2>
             <p style={pStyle}>
               Sacred to the goddess of love. The voice of Zeus, interpreted by oracles who called themselves Peleiades — and then turned into stars. My constant companions at train stations and piazze.
             </p>
