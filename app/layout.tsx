@@ -53,22 +53,22 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col">
-        {/* Header */}
-        <header className="w-full relative" style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A' }}>
-          <div className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: '800px' }}>
-            <HeaderLogoVisible />
-          </div>
-          <div className="absolute top-4 right-6 z-10">
-            <MobileNav />
-          </div>
-        </header>
+        <PageTransition>
+          {/* Header */}
+          <header className="w-full relative" style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A' }}>
+            <div className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: '800px' }}>
+              <HeaderLogoVisible />
+            </div>
+            <div className="absolute top-4 right-6 z-10">
+              <MobileNav />
+            </div>
+          </header>
 
-        {/* Main Content */}
-        <main className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
+          {/* Main Content */}
+          <main className="flex-1">{children}</main>
 
-        <Footer />
+          <Footer />
+        </PageTransition>
 
         <SearchOverlay />
 
