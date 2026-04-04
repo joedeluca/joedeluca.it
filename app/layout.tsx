@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Script from "next/script"
 import "./globals.css"
-import HeaderLogo from "@/components/HeaderLogo"
+import HeaderLogoVisible from "@/components/HeaderLogoVisible"
 import Footer from "@/components/Footer"
 import MobileNav from "@/components/MobileNav"
 import { Analytics } from "@vercel/analytics/next"
@@ -51,24 +51,18 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col">
-        {/* Fixed Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md h-28" style={{ borderBottom: '1px solid #3A2E24' }}>
-          <div className="h-full flex items-center justify-between px-8">
-            <div className="w-8" />
-            <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none opacity-0">
-              <HeaderLogo />
-            </div>
+        {/* Header */}
+        <header className="w-full relative" style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A' }}>
+          <div className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: '800px' }}>
+            <HeaderLogoVisible />
+          </div>
+          <div className="absolute top-4 right-6 z-10">
             <MobileNav />
           </div>
         </header>
 
-        {/* Logo — fixed above overlay, outside header stacking context */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 h-28 flex items-center z-[105] pointer-events-auto">
-          <HeaderLogo />
-        </div>
-
         {/* Main Content */}
-        <main className="flex-1 pt-28">{children}</main>
+        <main className="flex-1">{children}</main>
 
         <Footer />
 

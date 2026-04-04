@@ -1,3 +1,4 @@
+import React from "react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -7,56 +8,66 @@ const footerLinks = [
   { href: "/contact", label: "Contact" },
 ]
 
+const linkStyle: React.CSSProperties = {
+  fontFamily: '"Graphik", system-ui, sans-serif',
+  color: '#F5F0E8',
+  backgroundColor: '#0C0A08',
+  padding: '5px 12px',
+  fontSize: '12px',
+  letterSpacing: '0.08em',
+}
+
+const leoStyle: React.CSSProperties = {
+  fontFamily: '"Graphik", system-ui, sans-serif',
+  fontSize: '11px',
+  color: '#F5F0E8',
+  backgroundColor: '#0C0A08',
+  padding: '5px 12px',
+  letterSpacing: '0.1em',
+}
+
 export default function Footer() {
   return (
-    <footer className="py-8 bg-zinc-950 border-t border-[#3A2E24]">
+    <footer
+      style={{
+        backgroundImage: "url('/black-marble.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 40%",
+        width: "100%",
+        borderTop: "5px solid #C8B89A",
+      }}
+    >
       {/* Mobile */}
-      <div className="flex flex-col items-center gap-4 px-8 sm:hidden">
-        <nav className="flex gap-6">
+      <div className="flex flex-col items-center gap-4 px-8 py-10 sm:hidden">
+        <nav className="flex flex-wrap justify-center gap-3">
           {footerLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-sm transition-colors"
-              style={{ fontFamily: '"Graphik", system-ui, sans-serif', color: '#5a4a3a' }}
-            >
+            <Link key={label} href={href} className="text-sm transition-colors" style={linkStyle}>
               {label}
             </Link>
           ))}
         </nav>
-        <p
-          className="text-xs"
-          style={{ fontFamily: '"Graphik", system-ui, sans-serif', color: '#5a4a3a' }}
-        >
+        <p style={{ ...linkStyle, opacity: 0.6 }}>
           © {new Date().getFullYear()} Joe DeLuca. All rights reserved.
         </p>
       </div>
 
       {/* Desktop */}
-      <div className="hidden sm:flex justify-between items-center px-8">
-        <nav className="flex gap-6">
+      <div className="hidden sm:flex justify-between items-center px-10 py-9">
+        <nav className="flex gap-3">
           {footerLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-sm transition-colors"
-              style={{ fontFamily: '"Graphik", system-ui, sans-serif', color: '#5a4a3a' }}
-            >
+            <Link key={label} href={href} className="text-sm transition-colors" style={linkStyle}>
               {label}
             </Link>
           ))}
         </nav>
-        <p
-          className="text-xs"
-          style={{ fontFamily: '"Graphik", system-ui, sans-serif', color: '#5a4a3a' }}
-        >
+        <p style={{ ...linkStyle, fontSize: '11px', opacity: 0.6 }}>
           © {new Date().getFullYear()} Joe DeLuca. All rights reserved.
         </p>
         <Link
           href="https://leobruno.it"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ fontFamily: '"Graphik", system-ui, sans-serif', fontSize: '11px', color: '#5a4a3a', letterSpacing: '0.1em' }}
+          style={leoStyle}
         >
           leobruno.it
         </Link>

@@ -26,6 +26,21 @@ const personSchema = {
   url: "https://joedeluca.it",
 }
 
+const articles = [
+  {
+    slug: "the-client-who-wanted-friendly",
+    title: "The Client Who Wanted to Sound Friendly",
+    teaser: "Approachable",
+    excerpt: "There is a word that ends careers. Not loudly. It just shows up in the brief, third paragraph, underlined, and from that point forward the copy is already dead.",
+  },
+  {
+    slug: "sardinian-summer-german-brief",
+    title: "Sardinian Summer, German Brief",
+    teaser: "Forty degrees",
+    excerpt: "The brief arrived at 2pm on a Thursday in August. Eight pages. Tracked changes still visible. I was on a terrace in Quartucciu eating a peach.",
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -33,88 +48,90 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <div
-        className="min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24"
-        style={{ backgroundColor: '#0C0A08' }}
-      >
-        {/* Hero */}
-        <div className="max-w-3xl py-24">
-          <h1
-            style={{
-              fontFamily: '"Schnyder S", Georgia, serif',
-              fontSize: 'clamp(3.5rem, 10vw, 7rem)',
-              color: '#E8DCC8',
-              lineHeight: 1,
-              marginBottom: '2rem',
-            }}
-          >
-            Joe DeLuca.
-          </h1>
 
-          <p
-            style={{
-              fontFamily: '"Graphik", system-ui, sans-serif',
-              fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-              color: '#9A8878',
-              lineHeight: 1.6,
-              maxWidth: '38ch',
-              marginBottom: '3rem',
-            }}
-          >
-            {/* Your line goes here. */}
-            Senior copywriter. US agency pedigree. Works in English.
-            Based in Sardinia.
-          </p>
-
-          <Link
-            href="/about"
-            style={{
-              fontFamily: '"Graphik", system-ui, sans-serif',
-              fontSize: '13px',
-              color: '#E8DCC8',
-              letterSpacing: '0.12em',
-              textDecoration: 'none',
-              borderBottom: '1px solid #5a4a3a',
-              paddingBottom: '2px',
-            }}
-          >
-            START A PROJECT
-          </Link>
-        </div>
-
-        {/* Services */}
+      <div style={{ backgroundColor: "#F5F0E8", minHeight: "calc(100vh - 10rem)" }}>
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 border-t"
-          style={{ borderColor: '#3A2E24', maxWidth: '56rem' }}
+          className="w-full mx-auto px-5 sm:px-8"
+          style={{ maxWidth: "800px" }}
         >
-          {[
-            { title: 'Copy & Content', body: 'Brand voice. Campaigns. Long-form. The words that make everything else work.' },
-            { title: 'Web', body: 'Builds that are copy-first. Not dev-first. The thing most agencies get exactly wrong.' },
-            { title: 'Content Strategy', body: 'SEO logic, funnel thinking, editorial systems. The bridge between what you\'re building and what it\'s supposed to do.' },
-          ].map(({ title, body }) => (
-            <div key={title}>
-              <h2
-                style={{
-                  fontFamily: '"Schnyder S", Georgia, serif',
-                  fontSize: '1.5rem',
-                  color: '#E8DCC8',
-                  marginBottom: '0.75rem',
-                }}
-              >
-                {title}
-              </h2>
-              <p
-                style={{
-                  fontFamily: '"Graphik", system-ui, sans-serif',
-                  fontSize: '0.875rem',
-                  color: '#5a4a3a',
-                  lineHeight: 1.7,
-                }}
-              >
-                {body}
-              </p>
-            </div>
-          ))}
+
+          {/* Big editorial headline */}
+          <div className="pt-16 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
+            <h1
+              style={{
+                fontFamily: '"Schnyder S", Georgia, serif',
+                fontSize: 'clamp(2.8rem, 8vw, 5rem)',
+                color: '#1C1714',
+                lineHeight: 1.05,
+                letterSpacing: '-0.01em',
+                marginBottom: '1.5rem',
+              }}
+            >
+              The brief is not the problem.
+            </h1>
+            <p
+              style={{
+                fontFamily: '"Graphik", system-ui, sans-serif',
+                fontSize: '1rem',
+                color: '#5a4a3a',
+                lineHeight: 1.75,
+                maxWidth: '52ch',
+              }}
+            >
+              Senior copywriter. US agency pedigree. Works in English.
+              Based in Sardinia. Available for campaigns, long-form,
+              brand voice, and the kind of web copy that doesn’t read
+              like it was written by a committee in a hurry.
+            </p>
+          </div>
+
+          {/* Articles */}
+          <div className="py-14 pb-20 flex flex-col gap-14">
+            {articles.map(({ slug, title, teaser, excerpt }) => (
+              <article key={slug}>
+                <Link
+                  href={`/posts/${slug}`}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <p
+                    style={{
+                      fontFamily: '"Graphik", system-ui, sans-serif',
+                      fontSize: '0.65rem',
+                      letterSpacing: '0.2em',
+                      color: '#9A8878',
+                      textTransform: 'uppercase',
+                      marginBottom: '0.6rem',
+                    }}
+                  >
+                    {teaser}
+                  </p>
+                  <h2
+                    style={{
+                      fontFamily: '"Schnyder S", Georgia, serif',
+                      fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
+                      color: '#1C1714',
+                      lineHeight: 1.1,
+                      marginBottom: '0.75rem',
+                    }}
+                  >
+                    {title}
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: '"Graphik", system-ui, sans-serif',
+                      fontSize: '0.9rem',
+                      color: '#5a4a3a',
+                      lineHeight: 1.7,
+                      maxWidth: '55ch',
+                    }}
+                  >
+                    {excerpt}
+                  </p>
+                </Link>
+              </article>
+            ))}
+          </div>
+
         </div>
       </div>
     </>
