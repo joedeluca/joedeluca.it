@@ -24,21 +24,29 @@ export default function MobileNav() {
   const panelRef = useRef<HTMLDivElement>(null)
   const backdropRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Close on route change
   useEffect(() => {
     setOpen(false)
   }, [pathname])
 
-  // GSAP animate in/out
+  // Set initial position once panel is in DOM
   useEffect(() => {
     if (!panelRef.current) return
+    gsap.set(panelRef.current, { yPercent: -100 })
+  }, [mounted])
+
+  // GSAP animate in/out
+  useEffect(() => {
+    if (!panelRef.current || !mounted) return
     if (open) {
       gsap.fromTo(
         panelRef.current,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }
+        { yPercent: -100 },
+        { yPercent: 0, duration: 0.4, ease: "power3.out" }
       )
       gsap.fromTo(
         backdropRef.current,
@@ -46,45 +54,24 @@ export default function MobileNav() {
         { opacity: 1, duration: 0.3, ease: "power2.out" }
       )
     } else {
-      gsap.to(panelRef.current, { opacity: 0, y: 16, duration: 0.2, ease: "power2.in" })
+      gsap.to(panelRef.current, { yPercent: -100, duration: 0.3, ease: "power2.in" })
       gsap.to(backdropRef.current, { opacity: 0, duration: 0.2, ease: "power2.in" })
     }
-  }, [open])
+  }, [open, mounted])
 
   return (
     <>
-      {/* Hamburger button — stays inside header */}
+      {/* Hamburger button */}
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex flex-col justify-center items-center gap-[5px] w-8 h-8 flex-shrink-0"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label="Open menu"
       >
-        <span
-          className="block h-px w-5 transition-all duration-300 origin-center"
-          style={{
-            background: '#1C1714',
-            opacity: 0.7,
-            transform: open ? 'translateY(6px) rotate(45deg)' : 'none',
-          }}
-        />
-        <span
-          className="block h-px w-5 transition-all duration-300"
-          style={{
-            background: '#1C1714',
-            opacity: open ? 0 : 0.7,
-          }}
-        />
-        <span
-          className="block h-px w-5 transition-all duration-300 origin-center"
-          style={{
-            background: '#1C1714',
-            opacity: 0.7,
-            transform: open ? 'translateY(-6px) rotate(-45deg)' : 'none',
-          }}
-        />
+        <span className="block h-px w-5" style={{ background: '#1C1714', opacity: 0.7 }} />
+        <span className="block h-px w-5" style={{ background: '#1C1714', opacity: 0.7 }} />
+        <span className="block h-px w-5" style={{ background: '#1C1714', opacity: 0.7 }} />
       </button>
 
-      {/* Portal: backdrop + panel rendered on body to escape header's stacking context */}
       {mounted && createPortal(
         <>
           {/* Blur backdrop */}
@@ -94,7 +81,6 @@ export default function MobileNav() {
             style={{
               position: 'fixed',
               inset: 0,
-              top: '0rem',
               zIndex: 99,
               backdropFilter: 'blur(6px)',
               WebkitBackdropFilter: 'blur(6px)',
@@ -111,15 +97,28 @@ export default function MobileNav() {
               position: 'fixed',
               left: 0,
               right: 0,
-              top: '0rem',
+              top: 0,
               zIndex: 100,
               backgroundColor: '#0C0A08',
               borderBottom: '1px solid #3A2E24',
               pointerEvents: open ? 'auto' : 'none',
-              opacity: 0,
             }}
           >
-            <nav className="flex flex-col px-8 py-10 gap-8">
+            {/* Close button */}
+            <div className="flex justify-end px-6 pt-6">
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', color: '#E8DCC8', opacity: 0.6, lineHeight: 1 }}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </button>
+            </div>
+
+            <nav className="flex flex-col px-8 py-6 gap-8">
               {links.map((link) => (
                 <Link
                   key={link.label}
