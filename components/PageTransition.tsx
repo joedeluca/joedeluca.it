@@ -10,7 +10,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
   useEffect(() => {
     if (!el.current) return
-    gsap.fromTo(el.current, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" })
+    gsap.fromTo(el.current, { opacity: 0.6 }, { opacity: 1, duration: 0.35, ease: "power2.out" })
   }, [pathname])
 
   return <div ref={el}>{children}</div>
