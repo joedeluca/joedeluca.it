@@ -64,6 +64,27 @@ export default function AboutClient() {
             Sacred. Stellar. Everyday.
           </p>
         </div>
+
+        <div className="mt-16 border-t pt-12" style={{ borderColor: '#D8D0C4' }}>
+          <h2
+            style={{
+              fontFamily: '"Schnyder S", serif',
+              fontWeight: 700,
+              fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+              color: '#1C1714',
+              marginBottom: '1.25rem',
+              lineHeight: 1.1,
+            }}
+          >
+            More about me.
+          </h2>
+          <p style={{ fontFamily: '"Graphik", sans-serif', fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#1C1714', maxWidth: '48ch' }}>
+            I also write fiction, poetry, and criticism under the name Leo Bruno at{' '}
+            <a href="https://leobruno.it" target="_blank" rel="noopener noreferrer" style={{ borderBottom: '1px solid #9A8878' }}>leobruno.it</a>
+            {' '}— a literary magazine of one, covering the things that don&rsquo;t fit anywhere else. If you want to know how I actually think before hiring me, I recommend starting with{' '}
+            <a href="https://www.leobruno.it/bifidus" target="_blank" rel="noopener noreferrer" style={{ borderBottom: '1px solid #9A8878' }}>this short piece about cookies</a>.
+          </p>
+        </div>
       </div>
     </div>
   )
