@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Services",
@@ -10,14 +11,20 @@ const services = [
   {
     title: "Brand Voice",
     body: "I figure out what a company actually sounds like when it's at its best — and write the document that keeps it that way. This is the work that happens before anything else. Without it, every piece of copy is a coin flip.\n\nDone this for Playmoove from scratch. Did it for HyperPedal. It holds.",
+    image: "/tuningfork.png",
+    imageFloat: "right" as const,
   },
   {
     title: "Copy",
     body: "Websites. Campaigns. Long-form. Thought leadership that actually leads somewhere. Product naming. The kind of writing that makes the thing it's describing feel inevitable.\n\nI've worked at Bernstein-Rein, VMLY&R, and Temerlin McClain. I know what a real brief looks like and I know what to do when one doesn't exist.",
+    image: "/typeset.png",
+    imageFloat: "left" as const,
   },
   {
     title: "Web",
     body: "I build sites. Not as a developer who writes copy on the side, and not as a copywriter who hands off to a developer and hopes for the best. The writing and the build are the same conversation. This is unusual. It's also the only way to make something that holds together.\n\nNext.js, Vue, whatever the project needs.",
+    image: "/compass.png",
+    imageFloat: "right" as const,
   },
   {
     title: "The Integrated Thing",
@@ -57,7 +64,7 @@ export default function ServicesPage() {
 
         {/* Services */}
         <div className="flex flex-col gap-0">
-          {services.map(({ title, body }) => (
+          {services.map(({ title, body, image, imageFloat }) => (
             <div key={title} className="border-b py-12" style={{ borderColor: "#D8D0C4" }}>
               <h2
                 style={{
@@ -70,11 +77,24 @@ export default function ServicesPage() {
               >
                 {title}
               </h2>
-              {body.split("\n\n").map((para, i) => (
-                <p key={i} style={{ maxWidth: "58ch" }}>
-                  {para}
-                </p>
-              ))}
+              <div>
+                {image && (
+                  <Image
+                    src={image}
+                    alt=""
+                    width={200}
+                    height={100}
+                    className={imageFloat === "left" ? "float-left mr-8 mb-2" : "float-right ml-8 mb-2"}
+                    style={{ objectFit: "contain", maxHeight: "200px", width: "auto" }}
+                  />
+                )}
+                {body.split("\n\n").map((para, i) => (
+                  <p key={i} style={{ maxWidth: "58ch" }}>
+                    {para}
+                  </p>
+                ))}
+                {image && <div className="clear-both" />}
+              </div>
             </div>
           ))}
         </div>
