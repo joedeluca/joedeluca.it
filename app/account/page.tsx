@@ -45,7 +45,7 @@ export default async function AccountPage() {
           {firstName ? `Ciao, ${firstName}.` : "Ciao."}
         </h1>
 
-        <ul className="space-y-4 text-sm" style={{ color: '#A8A5A0' }}>
+        <ul className="space-y-4 text-sm" style={{ color: '#1C1714' }}>
           <li>{user.email}</li>
           {joinDate && <li>Member since {joinDate}</li>}
           <li>Active subscriber</li>

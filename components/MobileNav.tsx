@@ -8,8 +8,8 @@ import { gsap } from "gsap"
 
 const links = [
   { href: "/about", label: "About" },
-  { href: "/#work", label: "Work" },
-  { href: "/#services", label: "Services" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -62,7 +62,7 @@ export default function MobileNav() {
         <span
           className="block h-px w-5 transition-all duration-300 origin-center"
           style={{
-            background: '#E8DCC8',
+            background: '#1C1714',
             opacity: 0.7,
             transform: open ? 'translateY(6px) rotate(45deg)' : 'none',
           }}
@@ -70,14 +70,14 @@ export default function MobileNav() {
         <span
           className="block h-px w-5 transition-all duration-300"
           style={{
-            background: '#E8DCC8',
+            background: '#1C1714',
             opacity: open ? 0 : 0.7,
           }}
         />
         <span
           className="block h-px w-5 transition-all duration-300 origin-center"
           style={{
-            background: '#E8DCC8',
+            background: '#1C1714',
             opacity: 0.7,
             transform: open ? 'translateY(-6px) rotate(-45deg)' : 'none',
           }}
@@ -150,6 +150,12 @@ export default function MobileNav() {
                   {link.label}
                 </Link>
               ))}
+              <button
+                onClick={() => { setOpen(false); setTimeout(() => window.dispatchEvent(new CustomEvent('openSearch')), 50) }}
+                style={{ fontFamily: '"Graphik", system-ui, sans-serif', fontSize: '11px', color: '#5a4a3a', letterSpacing: '0.1em', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              >
+                ⌘K to search
+              </button>
             </div>
           </div>
         </>,

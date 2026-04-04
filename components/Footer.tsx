@@ -1,9 +1,10 @@
 import React from "react"
 import Link from "next/link"
+import SearchHint from "@/components/SearchHint"
 
 const footerLinks = [
-  { href: "/#services", label: "Services" },
-  { href: "/#work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ]
@@ -11,28 +12,25 @@ const footerLinks = [
 const linkStyle: React.CSSProperties = {
   fontFamily: '"Graphik", system-ui, sans-serif',
   color: '#F5F0E8',
-  backgroundColor: '#0C0A08',
+  backgroundColor: 'transparent',
   padding: '5px 12px',
   fontSize: '12px',
   letterSpacing: '0.08em',
 }
 
-const leoStyle: React.CSSProperties = {
+const subRowStyle: React.CSSProperties = {
   fontFamily: '"Graphik", system-ui, sans-serif',
   fontSize: '11px',
   color: '#F5F0E8',
-  backgroundColor: '#0C0A08',
-  padding: '5px 12px',
-  letterSpacing: '0.1em',
+  letterSpacing: '0.08em',
+  opacity: 0.5,
 }
 
 export default function Footer() {
   return (
     <footer
       style={{
-        backgroundImage: "url('/black-marble.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center 40%",
+        backgroundColor: "#09090b",
         width: "100%",
         borderTop: "5px solid #C8B89A",
       }}
@@ -46,12 +44,13 @@ export default function Footer() {
             </Link>
           ))}
         </nav>
-        <p style={{ ...linkStyle, opacity: 0.6 }}>
+        <SearchHint style={{ color: '#F5F0E8', opacity: 0.5, padding: '5px 12px' }} />
+        <p style={{ ...subRowStyle, opacity: 0.6 }}>
           © {new Date().getFullYear()} Joe DeLuca. All rights reserved.
         </p>
       </div>
 
-      {/* Desktop */}
+      {/* Desktop — main row */}
       <div className="hidden sm:flex justify-between items-center px-10 py-9">
         <nav className="flex gap-3">
           {footerLinks.map(({ href, label }) => (
@@ -60,14 +59,24 @@ export default function Footer() {
             </Link>
           ))}
         </nav>
-        <p style={{ ...linkStyle, fontSize: '11px', opacity: 0.6 }}>
-          © {new Date().getFullYear()} Joe DeLuca. All rights reserved.
-        </p>
+        <SearchHint style={{ color: '#F5F0E8', opacity: 0.5, padding: '5px 12px' }} />
+      </div>
+
+      {/* Desktop — sub row */}
+      <div
+        className="hidden sm:flex items-center px-10 py-3"
+        style={{ borderTop: '1px solid #27272a' }}
+      >
+        <div className="flex-1 flex justify-center">
+          <p style={{ ...subRowStyle, margin: 0 }}>
+            © {new Date().getFullYear()} Joe DeLuca. All rights reserved.
+          </p>
+        </div>
         <Link
           href="https://leobruno.it"
           target="_blank"
           rel="noopener noreferrer"
-          style={leoStyle}
+          style={{ ...subRowStyle, opacity: 0.5 }}
         >
           leobruno.it
         </Link>
@@ -75,4 +84,3 @@ export default function Footer() {
     </footer>
   )
 }
-

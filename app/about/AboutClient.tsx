@@ -35,7 +35,7 @@ export default function AboutClient() {
           style={{
             fontFamily: '"Graphik", sans-serif',
             fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-            color: '#A8A5A0',
+            color: '#DEDAD4',
           }}
         >
           Senior copywriter and creative director. Agency work at Bernstein-Rein,

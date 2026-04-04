@@ -69,15 +69,7 @@ export default function Home() {
             >
               The brief is not the problem.
             </h1>
-            <p
-              style={{
-                fontFamily: '"Graphik", system-ui, sans-serif',
-                fontSize: '1rem',
-                color: '#5a4a3a',
-                lineHeight: 1.75,
-                maxWidth: '52ch',
-              }}
-            >
+            <p style={{ maxWidth: '52ch' }}>
               Senior copywriter. US agency pedigree. Works in English.
               Based in Sardinia. Available for campaigns, long-form,
               brand voice, and the kind of web copy that doesn’t read
@@ -93,16 +85,7 @@ export default function Home() {
                   href={`/posts/${slug}`}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  <p
-                    style={{
-                      fontFamily: '"Graphik", system-ui, sans-serif',
-                      fontSize: '0.65rem',
-                      letterSpacing: '0.2em',
-                      color: '#9A8878',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.6rem',
-                    }}
-                  >
+                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
                     {teaser}
                   </p>
                   <h2
@@ -116,15 +99,7 @@ export default function Home() {
                   >
                     {title}
                   </h2>
-                  <p
-                    style={{
-                      fontFamily: '"Graphik", system-ui, sans-serif',
-                      fontSize: '0.9rem',
-                      color: '#5a4a3a',
-                      lineHeight: 1.7,
-                      maxWidth: '55ch',
-                    }}
-                  >
+                  <p style={{ maxWidth: '55ch' }}>
                     {excerpt}
                   </p>
                 </Link>

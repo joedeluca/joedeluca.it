@@ -28,6 +28,13 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #3A2E24 #0C0A08;
 }
+
+body {
+  color: #2A2420;
+  font-family: "Graphik", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
 html::-webkit-scrollbar {
   width: 6px;
 }
@@ -221,7 +228,7 @@ html::-webkit-scrollbar-thumb:hover {
   p {
     font-size: 1.5rem;
     line-height: 1.6;
-    color: #A8A5A0; /* warm mid-grey – darker than headlines for contrast */
+    color: #1C1714;
     margin-top: 1em;
     margin-bottom: 1em;
   }
@@ -232,7 +239,7 @@ html::-webkit-scrollbar-thumb:hover {
   article > p:first-of-type,
   div > p:first-of-type {
     margin-top: 0;
-    color: #A8A5A0;
+    color: #1C1714;
   }
 
   /* Global heading styling */
@@ -306,7 +313,7 @@ html::-webkit-scrollbar-thumb:hover {
   ul,
   ol {
     font-size: 1.5rem;
-    color: #a1a1aa; /* zinc-500 */
+    color: #1C1714;
     margin-top: 1.25em;
     margin-bottom: 1.25em;
     padding-left: 2rem;
@@ -314,14 +321,14 @@ html::-webkit-scrollbar-thumb:hover {
 
   li {
     font-size: 1.5rem;
-    color: #a1a1aa; /* zinc-500 */
+    color: #1C1714;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
 
   /* Global text styling */
   strong {
-    color: #a1a1aa; /* zinc-500 */
+    color: #1C1714;
     font-weight: 600;
   }
 
@@ -331,7 +338,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 
   a {
-    color: #a1a1aa; /* zinc-500 */
+    color: #1C1714;
     text-decoration: none;
   }
 
@@ -346,7 +353,7 @@ html::-webkit-scrollbar-thumb:hover {
 
   blockquote {
     font-size: 1.5rem;
-    color: #a1a1aa; /* zinc-500 */
+    color: #1C1714;
     border-left: 4px solid rgb(113 113 122);
     padding-left: 1.5rem;
     font-style: italic;
@@ -580,4 +587,45 @@ article.prose p:first-of-type::first-letter {
     width: 100% !important;
     margin: 0 0 1.5rem 0 !important;
   }
+}
+
+/* ─── Post body prose ──────────────────────────────────────────────────────── */
+.prose-joe p,
+.prose-joe li,
+.prose-joe blockquote,
+.prose-joe figcaption {
+  color: #1C1714;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.prose-joe p { margin-bottom: 1.5rem; }
+
+.prose-joe em { font-style: italic; }
+
+.prose-joe strong { font-weight: 600; color: #1C1714; }
+
+.prose-joe a {
+  color: #1C1714;
+  border-bottom: 1px solid #9A8878;
+  text-decoration: none;
+}
+
+.prose-joe blockquote {
+  border-left: 2px solid #C8B89A;
+  padding-left: 1.25rem;
+  color: #1C1714;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.prose-joe figure {
+  margin: 2rem 0;
+}
+
+.prose-joe figcaption {
+  font-size: 0.8rem;
+  color: #1C1714;
+  text-align: center;
+  margin-top: 0.5rem;
 }
