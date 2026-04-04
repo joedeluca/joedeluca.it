@@ -5,6 +5,7 @@ import HeaderLogoVisible from "@/components/HeaderLogoVisible"
 import Footer from "@/components/Footer"
 import MobileNav from "@/components/MobileNav"
 import SearchOverlay from "@/components/SearchOverlay"
+import PageTransition from "@/components/PageTransition"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -63,7 +64,9 @@ export default function RootLayout({
         </header>
 
         {/* Main Content */}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
 
         <Footer />
 
