@@ -52,7 +52,7 @@ export default function AboutClient() {
               width={160}
               height={200}
               className="float-right ml-8 mb-4"
-              style={{ objectFit: 'contain', minHeight: '200px', width: 'auto' }}
+              style={{ objectFit: 'contain', minHeight: 'clamp(150px, 20vw, 200px)', width: 'auto' }}
             />
             <h2 style={h2Style}>Why a pigeon?</h2>
             <p style={pStyle}>
