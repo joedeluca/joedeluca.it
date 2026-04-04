@@ -589,33 +589,6 @@ article.prose p:first-of-type::first-letter {
   }
 }
 
-/* ─── Pigeon section: image below headline on mobile, float right on desktop ── */
-.pigeon-section {
-  display: flex;
-  flex-direction: column;
-}
-.pigeon-section .pigeon-image {
-  order: 2;
-  float: none;
-  width: auto;
-  max-height: 150px;
-  margin: 0.75rem 0 1rem 0;
-  object-fit: contain;
-}
-.pigeon-section h2 { order: 1; }
-.pigeon-section p  { order: 3; }
-
-@media (min-width: 640px) {
-  .pigeon-section {
-    display: block;
-  }
-  .pigeon-section .pigeon-image {
-    float: right;
-    max-height: 200px;
-    margin: 0 0 1rem 2rem;
-  }
-}
-
 /* ─── Post body prose ──────────────────────────────────────────────────────── */
 .prose-joe p,
 .prose-joe li,
