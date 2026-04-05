@@ -11,10 +11,8 @@ export default function HeaderHeightSetter() {
     }
     set()
     window.addEventListener("resize", set)
-    window.addEventListener("scroll", set, { passive: true })
     return () => {
       window.removeEventListener("resize", set)
-      window.removeEventListener("scroll", set)
     }
   }, [])
   return null
