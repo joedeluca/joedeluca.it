@@ -1,7 +1,7 @@
 ---
 title: "The Client Who Wanted to Sound Friendly"
 date: "2026-03-28"
-category: "Field Notes"
+category: "Craft"
 tags: ["Field Notes", "Copywriting", "Clients", "Brand Voice"]
 excerpt: "There is a word that ends careers. Not loudly. It just shows up in the brief, third paragraph, underlined, and from that point forward the copy is already dead."
 teaser: "Approachable"

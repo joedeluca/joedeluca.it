@@ -1,7 +1,7 @@
 ---
 title: "Sardinian Summer, German Brief"
 date: "2026-04-01"
-category: "Field Notes"
+category: "Marginalia"
 tags: ["Field Notes", "Sardinia", "Copywriting", "Europe"]
 excerpt: "The brief arrived at 2pm on a Thursday in August. Eight pages. Tracked changes still visible. I was on a terrace in Quartucciu eating a peach."
 teaser: "Forty degrees"

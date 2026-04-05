@@ -7,9 +7,8 @@ import PigeonSprite from "@/components/PigeonSprite"
 
 const COLLAPSED_HEIGHT = 80
 const NAV_ITEMS = [
-  { label: "The Work", href: "/?filter=work" },
-  { label: "Business", href: "/?filter=business" },
-  { label: "Marginalia", href: "/?filter=marginalia" },
+  { label: "Craft", href: "/?filter=Craft" },
+  { label: "Marginalia", href: "/?filter=Marginalia" },
 ]
 
 export default function HeaderLogo() {
@@ -38,14 +37,12 @@ export default function HeaderLogo() {
           ease: "power2.inOut",
           onStart: () => {
             header.style.overflow = "visible"
-            header.classList.add("header-blurred")
           },
           onComplete: () => { setIsScrolled(true) },
         })
       } else {
         setIsScrolled(false)
         header.style.overflow = "hidden"
-        header.classList.remove("header-blurred")
         gsap.to(header, { height: fullHeight, duration: 0.22, ease: "power2.out" })
       }
     }
@@ -98,7 +95,8 @@ export default function HeaderLogo() {
         {isScrolled ? (
           <div
             ref={navRef}
-            style={{ display: "flex", gap: "2rem", opacity: 1, marginBottom: "6px" }}
+            className="hidden sm:flex"
+            style={{ gap: "2rem", opacity: 1, marginBottom: "6px" }}
             onClick={(e) => e.stopPropagation()}
           >
             {NAV_ITEMS.map(({ label, href }) => (
