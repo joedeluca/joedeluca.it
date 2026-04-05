@@ -38,18 +38,14 @@ export default function HeaderLogo() {
           ease: "power2.inOut",
           onStart: () => {
             header.style.overflow = "visible"
-            header.style.backgroundColor = "rgba(245, 240, 232, 0.75)"
-            header.style.backdropFilter = "blur(12px)"
-            header.style.setProperty("-webkit-backdrop-filter", "blur(12px)")
+            header.classList.add("header-blurred")
           },
           onComplete: () => { setIsScrolled(true) },
         })
       } else {
         setIsScrolled(false)
         header.style.overflow = "hidden"
-        header.style.backgroundColor = "#F5F0E8"
-        header.style.backdropFilter = ""
-        header.style.webkitBackdropFilter = ""
+        header.classList.remove("header-blurred")
         gsap.to(header, { height: fullHeight, duration: 0.22, ease: "power2.out" })
       }
     }
