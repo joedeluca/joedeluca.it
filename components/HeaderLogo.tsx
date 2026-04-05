@@ -1,13 +1,13 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { gsap } from "gsap"
+import PigeonSprite from "@/components/PigeonSprite"
 
 export default function HeaderLogo() {
   const nameRef = useRef<HTMLDivElement>(null)
-  const pigeonRef = useRef<HTMLImageElement>(null)
+  const pigeonRef = useRef<HTMLDivElement>(null)
   const scrolled = useRef(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -21,15 +21,20 @@ export default function HeaderLogo() {
       scrolled.current = past
 
       if (past) {
+        document.querySelector("header")?.classList.add("header-scrolled")
+        document.getElementById("header-inner")?.classList.remove("pt-8", "pb-10")
+        document.getElementById("logo-inner")?.classList.remove("pt-8", "pb-10")
         // Scroll down: shrink name out, pigeon in
         gsap.to(nameRef.current, {
-          opacity: 0,
-          y: -12,
-          duration: 0.25,
+          y: "-110%",
+          duration: 0.3,
           ease: "power2.in",
           onComplete: () => setIsScrolled(true),
         })
       } else {
+        document.querySelector("header")?.classList.remove("header-scrolled")
+        document.getElementById("header-inner")?.classList.add("pt-8", "pb-10")
+        document.getElementById("logo-inner")?.classList.add("pt-8", "pb-10")
         // Scroll up: pigeon out, name back in
         setIsScrolled(false)
         gsap.fromTo(
@@ -58,29 +63,26 @@ export default function HeaderLogo() {
   return (
     <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem", width: "100%" }}>
       {isScrolled && (
-        <Image
-          ref={pigeonRef}
-          src="/headerpigeon.png"
-          alt=""
-          width={60}
-          height={40}
-          style={{ objectFit: "contain", height: "40px", width: "auto" }}
-        />
+        <div ref={pigeonRef}>
+          <PigeonSprite />
+        </div>
       )}
       <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         {!isScrolled && (
-          <div
-            ref={nameRef}
-            className="logo-name"
-            style={{
-              fontFamily: '"Schnyder S", Georgia, serif',
-              fontWeight: 700,
-              fontSize: "clamp(2rem, 18vw, 9rem)",
-              color: "#1C1714",
-              lineHeight: 1,
-            }}
-          >
-            Joe DeLuca
+          <div style={{ overflow: "hidden" }}>
+            <div
+              ref={nameRef}
+              className="logo-name"
+              style={{
+                fontFamily: '"Schnyder S", Georgia, serif',
+                fontWeight: 700,
+                fontSize: "clamp(2rem, 18vw, 9rem)",
+                color: "#1C1714",
+                lineHeight: 1,
+              }}
+            >
+              Joe DeLuca
+            </div>
           </div>
         )}
         <div

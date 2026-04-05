@@ -54,7 +54,7 @@ export default function RootLayout({
           className="fixed top-0 left-0 right-0"
           style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A', zIndex: 50 }}
         >
-          <div className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px" }}>
+          <div id="header-inner" className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px" }}>
             {/* spacer — matches logo height so header has correct height */}
             <div style={{ visibility: 'hidden', pointerEvents: 'none' }}>
               <HeaderLogoVisible />
@@ -70,7 +70,7 @@ export default function RootLayout({
           className="fixed top-0 left-0 right-0"
           style={{ zIndex: 200, pointerEvents: 'none' }}
         >
-          <div className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px", pointerEvents: 'auto' }}>
+          <div id="logo-inner" className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px", pointerEvents: 'auto' }}>
             <HeaderLogoVisible />
           </div>
         </div>
