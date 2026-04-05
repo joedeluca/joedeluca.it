@@ -54,7 +54,7 @@ export default function Home() {
         <div className="w-full mx-auto px-5 sm:px-8" style={{ maxWidth: "800px" }}>
 
           {/* Intro */}
-          <div className="pt-16 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
+          <div className="pt-24 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
             <Image
               src="/oed.png"
               alt=""

@@ -6,8 +6,9 @@ import { gsap } from "gsap"
 const FRAMES = 5
 const FRAME_W = 1115 / FRAMES  // 223
 const FRAME_H = 400
-const DISPLAY_H = 96
+const DISPLAY_H = 80
 const DISPLAY_W = FRAME_W * (DISPLAY_H / FRAME_H)
+const CONTAINER_H = DISPLAY_H + 36
 const FPS = 8
 
 export default function PigeonSprite() {
@@ -41,11 +42,11 @@ export default function PigeonSprite() {
       ref={ref}
       style={{
         width: DISPLAY_W,
-        height: DISPLAY_H,
+        height: CONTAINER_H,
         backgroundImage: "url('/pigeon-sprite.png')",
-        backgroundSize: `${DISPLAY_W * FRAMES}px ${DISPLAY_H}px`,
+        backgroundSize: `${DISPLAY_W * FRAMES}px 99px`,
         backgroundPositionX: "0px",
-        backgroundPositionY: "0px",
+        backgroundPositionY: "40px",
         backgroundRepeat: "no-repeat",
         flexShrink: 0,
       }}

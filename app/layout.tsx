@@ -49,31 +49,18 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
 
-        {/* Fixed header bg — stays on scroll, z-50 so overlay covers it */}
+        {/* Fixed header — logo lives inside so overflow:hidden clips it */}
         <header
           className="fixed top-0 left-0 right-0"
-          style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A', zIndex: 50 }}
+          style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A', zIndex: 150, overflow: 'hidden' }}
         >
-          <div id="header-inner" className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px" }}>
-            {/* spacer — matches logo height so header has correct height */}
-            <div style={{ visibility: 'hidden', pointerEvents: 'none' }}>
-              <HeaderLogoVisible />
-            </div>
+          <div id="header-inner" className="w-full mx-auto px-5 sm:px-8 pb-4" style={{ maxWidth: "800px", display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}>
+            <HeaderLogoVisible />
           </div>
           <div className="absolute top-4 right-6" style={{ zIndex: 60 }}>
             <MobileNav />
           </div>
         </header>
-
-        {/* Logo — fixed at z-200, above the overlay (z-100) */}
-        <div
-          className="fixed top-0 left-0 right-0"
-          style={{ zIndex: 200, pointerEvents: 'none' }}
-        >
-          <div id="logo-inner" className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px", pointerEvents: 'auto' }}>
-            <HeaderLogoVisible />
-          </div>
-        </div>
 
         <HeaderHeightSetter />
         <SearchOverlay />
