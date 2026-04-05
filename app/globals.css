@@ -629,3 +629,20 @@ article.prose p:first-of-type::first-letter {
   text-align: center;
   margin-top: 0.5rem;
 }
+
+/* ─── Search open: header fades dark, logo flips to cream ───────────────── */
+header {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+body.search-open header {
+  background-color: rgba(9,9,11,0.0) !important;
+  border-bottom-color: transparent !important;
+}
+.logo-name, .logo-subtitle {
+  transition: color 0.2s ease;
+}
+body.search-open .logo-name,
+body.search-open .logo-subtitle {
+  color: #F5F0E8 !important;
+}
+

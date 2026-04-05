@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Joe DeLuca",
@@ -50,56 +51,47 @@ export default function Home() {
       />
 
       <div style={{ backgroundColor: "#F5F0E8", minHeight: "calc(100vh - 10rem)" }}>
-        <div
-          className="w-full mx-auto px-5 sm:px-8"
-          style={{ maxWidth: "800px" }}
-        >
+        <div className="w-full mx-auto px-5 sm:px-8" style={{ maxWidth: "800px" }}>
 
-          {/* Big editorial headline */}
+          {/* Intro */}
           <div className="pt-16 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
-            <h1
-              style={{
-                fontFamily: '"Schnyder S", Georgia, serif',
-                fontSize: 'clamp(2.8rem, 8vw, 5rem)',
-                color: '#1C1714',
-                lineHeight: 1.05,
-                letterSpacing: '-0.01em',
-                marginBottom: '1.5rem',
-              }}
-            >
-              The brief is not the problem.
-            </h1>
-            <p style={{ maxWidth: '52ch' }}>
+            <Image
+              src="/oed.png"
+              alt=""
+              width={160}
+              height={360}
+              className="float-left mr-8 mb-2"
+              style={{ objectFit: "contain", maxHeight: "360px", width: "auto" }}
+            />
+            <p style={{ maxWidth: "52ch", fontSize: "1.75rem", paddingTop: "3rem" }}>
               Senior copywriter. US agency pedigree. Works in English.
               Based in Sardinia. Available for campaigns, long-form,
-              brand voice, and the kind of web copy that doesn’t read
+              brand voice, and the kind of web copy that doesn&apos;t read
               like it was written by a committee in a hurry.
             </p>
+            <div className="clear-both" />
           </div>
 
           {/* Articles */}
           <div className="py-14 pb-20 flex flex-col gap-14">
             {articles.map(({ slug, title, teaser, excerpt }) => (
               <article key={slug}>
-                <Link
-                  href={`/posts/${slug}`}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+                <Link href={`/posts/${slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                  <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.6rem" }}>
                     {teaser}
                   </p>
                   <h2
                     style={{
                       fontFamily: '"Schnyder S", Georgia, serif',
-                      fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
-                      color: '#1C1714',
+                      fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
+                      color: "#1C1714",
                       lineHeight: 1.1,
-                      marginBottom: '0.75rem',
+                      marginBottom: "0.75rem",
                     }}
                   >
                     {title}
                   </h2>
-                  <p style={{ maxWidth: '55ch' }}>
+                  <p style={{ maxWidth: "55ch" }}>
                     {excerpt}
                   </p>
                 </Link>

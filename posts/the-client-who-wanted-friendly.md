@@ -7,6 +7,14 @@ excerpt: "There is a word that ends careers. Not loudly. It just shows up in the
 teaser: "Approachable"
 ---
 
+1. Nobody Gives a Shit about Your Passion
+2. Emotional register of Customer, Not Client
+3. Familiar doesn't mean connected
+4. The actual thing gets buiried
+5. A committe never wrote anything that sounded as good as one strong voice. 
+6. Vagueness used as a shield against being wrong. 
+7. Most companies hire writers to make them feel better about themselves. 
+
 There is a word that ends careers. Not loudly. It just shows up in the brief, third paragraph, underlined, and from that point forward the copy is already dead.
 
 The word is *approachable*.

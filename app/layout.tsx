@@ -6,6 +6,7 @@ import Footer from "@/components/Footer"
 import MobileNav from "@/components/MobileNav"
 import SearchOverlay from "@/components/SearchOverlay"
 import PageTransition from "@/components/PageTransition"
+import HeaderHeightSetter from "@/components/HeaderHeightSetter"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -47,24 +48,43 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col">
-        <PageTransition>
-          {/* Header */}
-          <header className="w-full relative" style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A' }}>
-            <div className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: '800px' }}>
+
+        {/* Fixed header bg — stays on scroll, z-50 so overlay covers it */}
+        <header
+          className="fixed top-0 left-0 right-0"
+          style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #C8B89A', zIndex: 50 }}
+        >
+          <div className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px" }}>
+            {/* spacer — matches logo height so header has correct height */}
+            <div style={{ visibility: 'hidden', pointerEvents: 'none' }}>
               <HeaderLogoVisible />
             </div>
-            <div className="absolute top-4 right-6 z-10">
-              <MobileNav />
-            </div>
-          </header>
+          </div>
+          <div className="absolute top-4 right-6" style={{ zIndex: 60 }}>
+            <MobileNav />
+          </div>
+        </header>
 
-          {/* Main Content */}
-          <main className="flex-1">{children}</main>
+        {/* Logo — fixed at z-200, above the overlay (z-100) */}
+        <div
+          className="fixed top-0 left-0 right-0"
+          style={{ zIndex: 200, pointerEvents: 'none' }}
+        >
+          <div className="w-full mx-auto px-5 sm:px-8 pt-8 pb-10" style={{ maxWidth: "800px", pointerEvents: 'auto' }}>
+            <HeaderLogoVisible />
+          </div>
+        </div>
 
-          <Footer />
-        </PageTransition>
-
+        <HeaderHeightSetter />
         <SearchOverlay />
+
+        {/* Page content pushed below fixed header */}
+        <PageTransition>
+          <div className="flex flex-col flex-1" style={{ paddingTop: 'var(--header-height, 0)' }}>
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </PageTransition>
 
         <Analytics />
         <SpeedInsights />
@@ -72,4 +92,3 @@ export default function RootLayout({
     </html>
   )
 }
-

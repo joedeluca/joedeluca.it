@@ -89,6 +89,7 @@ export default function SearchOverlay() {
   const [query, setQuery] = useState("")
   const [posts, setPosts] = useState<Post[]>([])
   const [results, setResults] = useState<Post[]>([])
+  const [headerHeight, setHeaderHeight] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
@@ -100,11 +101,15 @@ export default function SearchOverlay() {
   }, [])
 
   const openOverlay = useCallback(() => {
+    const header = document.querySelector("header")
+    if (header) setHeaderHeight(header.getBoundingClientRect().height)
+    document.body.classList.add("search-open")
     setOpen(true)
     setTimeout(() => inputRef.current?.focus(), 50)
   }, [])
 
   const closeOverlay = useCallback(() => {
+    document.body.classList.remove("search-open")
     setOpen(false)
     setQuery("")
     setResults([])
@@ -154,11 +159,14 @@ export default function SearchOverlay() {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[200] flex flex-col items-center"
-      style={{ backgroundColor: "rgba(9,9,11,0.92)", backdropFilter: "blur(14px)" }}
+      className="fixed inset-0 z-[100] flex flex-col items-center"
+      style={{
+        backgroundColor: "rgba(9,9,11,0.92)",
+        backdropFilter: "blur(14px)",
+      }}
       onClick={(e) => { if (e.target === e.currentTarget) closeOverlay() }}
     >
-      <div className="w-full max-w-2xl mt-[9rem] px-6">
+      <div className="w-full max-w-2xl px-6" style={{ marginTop: headerHeight + 48 }}>
         <input
           ref={inputRef}
           value={query}
