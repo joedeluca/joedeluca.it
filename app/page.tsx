@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
 import { getSortedPostsData } from "@/lib/posts"
 import HomeClient from "./HomeClient"
 
@@ -39,9 +38,7 @@ export default function Home() {
       />
       <div style={{ backgroundColor: "#F5F0E8", minHeight: "calc(100vh - 10rem)" }}>
         <div className="w-full mx-auto px-5 sm:px-8" style={{ maxWidth: "800px" }}>
-          <Suspense>
-            <HomeClient posts={posts} />
-          </Suspense>
+          <HomeClient posts={posts} />
         </div>
       </div>
     </>
