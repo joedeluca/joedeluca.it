@@ -36,6 +36,16 @@ body {
   font-size: 1rem;
   line-height: 1.8;
 }
+
+a {
+  color: #1C1714;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  opacity: 0.7;
+}
 html::-webkit-scrollbar {
   width: 6px;
 }

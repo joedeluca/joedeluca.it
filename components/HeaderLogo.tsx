@@ -27,6 +27,8 @@ export default function HeaderLogo() {
       if (past === scrolled.current) return
       scrolled.current = past
 
+      const border = document.getElementById("header-border")
+
       if (past) {
         if (subtitleRef.current) {
           gsap.to(subtitleRef.current, { opacity: 0, duration: 0.15, ease: "power2.in" })
@@ -38,9 +40,13 @@ export default function HeaderLogo() {
           onStart: () => {
             header.style.overflow = "visible"
           },
-          onComplete: () => { setIsScrolled(true) },
+          onComplete: () => {
+            setIsScrolled(true)
+            if (border) gsap.fromTo(border, { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" })
+          },
         })
       } else {
+        if (border) gsap.to(border, { scaleX: 0, duration: 0.2, ease: "power2.in" })
         setIsScrolled(false)
         header.style.overflow = "hidden"
         gsap.to(header, { height: fullHeight, duration: 0.22, ease: "power2.out" })
@@ -82,13 +88,13 @@ export default function HeaderLogo() {
             style={{
               fontFamily: '"Schnyder S", Georgia, serif',
               fontWeight: 700,
-              fontSize: "clamp(2rem, 18vw, 9rem)",
+              fontSize: "clamp(2rem, 18vw, 7rem)",
               color: "#1C1714",
               lineHeight: 1,
               whiteSpace: "nowrap",
             }}
           >
-            Joe DeLuca
+            JOE DELUCA
           </div>
         )}
 
@@ -96,7 +102,7 @@ export default function HeaderLogo() {
           <div
             ref={navRef}
             className="hidden sm:flex"
-            style={{ gap: "2rem", opacity: 1, marginBottom: "6px" }}
+            style={{ gap: "2rem", opacity: 1, marginBottom: "8px" }}
             onClick={(e) => e.stopPropagation()}
           >
             {NAV_ITEMS.map(({ label, href }) => (
@@ -132,7 +138,7 @@ export default function HeaderLogo() {
               whiteSpace: "nowrap",
             }}
           >
-            Deluxe International Copywriter&#8482;
+            Deluxe International Copywriter<span style={{ fontSize: "0.6em", verticalAlign: "super", position: "relative", top: "2px", left: "-2px" }}>&#8482;</span>
           </div>
         )}
       </div>

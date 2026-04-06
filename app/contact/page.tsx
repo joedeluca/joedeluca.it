@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import ContactForm from "@/components/ContactForm"
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -25,20 +26,7 @@ export default function ContactPage() {
           Available for copywriting, creative direction, brand voice, and web
           copy. US agency pedigree. Works in English. Based in Sardinia.
         </p>
-        <a
-          href="mailto:joe@joedeluca.it"
-          style={{
-            fontFamily: '"Graphik", system-ui, sans-serif',
-            fontSize: "12px",
-            color: "#1C1714",
-            letterSpacing: "0.15em",
-            textDecoration: "none",
-            borderBottom: "1px solid #9A8878",
-            paddingBottom: "3px",
-          }}
-        >
-          JOE@JOEDELUCA.IT
-        </a>
+        <ContactForm />
       </div>
     </div>
   )

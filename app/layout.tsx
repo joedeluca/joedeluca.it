@@ -52,11 +52,12 @@ export default function RootLayout({
         {/* Fixed header — logo lives inside so overflow:hidden clips it */}
         <header
           className="fixed top-0 left-0 right-0 backdrop-blur-md"
-          style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)', borderBottom: '1px solid #C8B89A', zIndex: 150, overflow: 'hidden' }}
+          style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)', zIndex: 150, overflow: 'hidden' }}
         >
-          <div id="header-inner" className="w-full mx-auto px-5 sm:px-8 pb-4" style={{ maxWidth: "800px", display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}>
+          <div id="header-inner" className="w-full mx-auto px-5 sm:px-8 py-8" style={{ maxWidth: "800px", display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}>
             <HeaderLogoVisible />
           </div>
+          <div id="header-border" style={{ position: "absolute", bottom: 0, left: 0, height: "1px", width: "100%", backgroundColor: "#C8B89A", transform: "scaleX(0)", transformOrigin: "left center" }} />
           <div className="absolute top-4 right-6" style={{ zIndex: 60 }}>
             <MobileNav />
           </div>
