@@ -31,13 +31,13 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
   return (
     <>
       {/* Intro */}
-      <div className="pt-12 pb-12 border-b" style={{ borderColor: "#D8D0C4", display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
+      <div className="pt-12 pb-12 border-b overflow-hidden lg:flex lg:gap-6 lg:items-start" style={{ borderColor: "#D8D0C4" }}>
         <Image
           src="/oed.png"
           alt=""
           width={160}
           height={360}
-          className="flex-shrink-0"
+          className="float-left mr-6 mb-2 lg:float-none lg:flex-shrink-0"
           style={{ objectFit: "contain", maxHeight: "clamp(220px, 45vw, 360px)", width: "auto" }}
         />
         <div style={{ paddingTop: "1rem", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "1rem" }}>
