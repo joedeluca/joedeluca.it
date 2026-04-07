@@ -45,8 +45,8 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
             In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
             I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
           </p>
-          <Link href="/about" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1C1714", textDecoration: "none", backgroundColor: "#C8B89A", padding: "0.5rem 1.25rem", borderRadius: "6px", whiteSpace: "nowrap" }}>
-            Continue →
+          <Link href="/about" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1C1714", textDecoration: "none", backgroundColor: "#C8B89A", padding: "0.5rem 1.25rem", borderRadius: "6px", whiteSpace: "nowrap", alignSelf: "flex-end" }}>
+            Continue
           </Link>
         </div>
       </div>
