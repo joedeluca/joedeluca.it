@@ -24,23 +24,39 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
   return (
     <>
       {/* Intro */}
-      <div className="pt-12 pb-12 border-b overflow-hidden lg:flex lg:gap-6 lg:items-start" style={{ borderColor: "#D8D0C4" }}>
-        <Image
-          src="/oed.png"
-          alt=""
-          width={160}
-          height={360}
-          className="float-left mr-6 mb-2 lg:float-none lg:flex-shrink-0"
-          style={{ objectFit: "contain", maxHeight: "clamp(220px, 45vw, 360px)", width: "auto" }}
-        />
-        <div style={{ paddingTop: "1rem", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "1rem" }}>
-          <p style={{ margin: 0 }}>
+      <div className="pt-12 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
+        {/* Mobile: float. Desktop: side by side flex */}
+        <div className="md:hidden">
+          <Image
+            src="/oed.png"
+            alt=""
+            width={160}
+            height={360}
+            className="float-left max-sm:pr-2 mr-5 mb-2"
+            style={{ objectFit: "contain", maxHeight: "200px", width: "auto" }}
+          />
+          <p>
             In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
             I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
           </p>
-          <Link href="/about" className="btn-outline">
-            Continue
-          </Link>
+          <div className="clear-both" />
+          <Link href="/about" className="btn-outline w-fit" style={{ marginTop: "1rem", display: "inline-block" }}>Continue</Link>
+        </div>
+        <div className="hidden md:flex gap-8 items-start">
+          <Image
+            src="/oed.png"
+            alt=""
+            width={160}
+            height={360}
+            style={{ objectFit: "contain", maxHeight: "360px", width: "auto", flexShrink: 0 }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", paddingTop: "1rem" }}>
+            <p style={{ margin: 0 }}>
+              In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
+              I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
+            </p>
+            <Link href="/about" className="btn-outline" style={{ display: "inline-block" }}>Continue</Link>
+          </div>
         </div>
       </div>
 

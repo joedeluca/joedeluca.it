@@ -146,7 +146,7 @@ export default function MobileNav({ latestPosts = [] }: { latestPosts?: Markdown
               {/* Right: latest posts — desktop only */}
               {latestPosts.length > 0 && (
                 <div className="hidden sm:flex flex-col justify-center gap-4 py-6 border-l pl-16" style={{ borderColor: '#3A2E24' }}>
-                  <p style={{ fontFamily: '"Graphik", system-ui, sans-serif', fontSize: '0.6rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#5a4a3a', margin: 0 }}>
+                  <p style={{ fontFamily: '"Graphik", system-ui, sans-serif', fontSize: '1.2rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#5a4a3a', margin: 0 }}>
                     The Latest
                   </p>
                   {latestPosts.map((post) => (
@@ -157,7 +157,7 @@ export default function MobileNav({ latestPosts = [] }: { latestPosts?: Markdown
                       className="nav-link"
                       style={{
                         fontFamily: '"Schnyder S", Georgia, serif',
-                        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                        fontSize: 'clamp(2rem, 4vw, 2.5rem)',
                         color: '#E8DCC8',
                         opacity: 0.7,
                         lineHeight: 1.2,
