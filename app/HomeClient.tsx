@@ -5,13 +5,6 @@ import Image from "next/image"
 import ContactForm from "@/components/ContactForm"
 import type { MarkdownContent } from "@/lib/markdown"
 
-const SECTION_LABEL: React.CSSProperties = {
-  fontSize: "0.65rem",
-  letterSpacing: "0.25em",
-  textTransform: "uppercase",
-  color: "#A8A5A0",
-  marginBottom: "1.5rem",
-}
 
 const SECTION_TITLE: React.CSSProperties = {
   fontFamily: '"Schnyder S", Georgia, serif',
@@ -46,14 +39,12 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
             I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
           </p>
           <Link href="/about" className="btn-outline" style={{ alignSelf: "flex-end" }}>
-            Continue →
-          </Link>
+            Continue          </Link>
         </div>
       </div>
 
       {/* Writing */}
       <div style={{ paddingTop: "3rem" }}>
-        <p style={SECTION_LABEL}>Writing</p>
         <div className="flex flex-col gap-14">
           {posts.map(({ slug, title, teaser, excerpt }) => (
             <article key={slug}>
@@ -67,14 +58,12 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
             </article>
           ))}
           <Link href="/blog" className="btn-outline">
-            All writing →
-          </Link>
+            All writing          </Link>
         </div>
       </div>
 
       {/* Services */}
       <div style={SECTION_DIVIDER}>
-        <p style={SECTION_LABEL}>Services</p>
         <h2 style={SECTION_TITLE}>
           <Link href="/services" style={{ textDecoration: "none", color: "inherit" }}>
             What I Do
@@ -84,13 +73,11 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
           Campaigns, brand voice, long-form, web copy. The full list, with context.
         </p>
         <Link href="/services" className="btn-outline" style={{ marginTop: "1rem" }}>
-          View services →
-        </Link>
+          View services        </Link>
       </div>
 
       {/* Contact */}
       <div style={{ ...SECTION_DIVIDER, paddingBottom: "5rem" }}>
-        <p style={SECTION_LABEL}>Contact</p>
         <div style={{ display: "flex", gap: "3rem", flexWrap: "wrap" }}>
           <div style={{ flex: "1 1 200px" }}>
             <h2 style={SECTION_TITLE}>Get in touch</h2>
