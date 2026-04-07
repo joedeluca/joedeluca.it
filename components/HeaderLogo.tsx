@@ -75,7 +75,7 @@ export default function HeaderLogo() {
   }, [isScrolled])
 
   return (
-    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "flex-end", gap: "0.75rem", width: "100%" }}>
+    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "flex-end", gap: "0.75rem", width: "100%", paddingRight: "3rem" }}>
       {isScrolled && (
         <div style={{ marginTop: "16px" }}>
           <PigeonSprite />
@@ -88,7 +88,7 @@ export default function HeaderLogo() {
             style={{
               fontFamily: '"Schnyder S", Georgia, serif',
               fontWeight: 700,
-              fontSize: "clamp(2rem, 18vw, 7rem)",
+              fontSize: "clamp(1.75rem, 13vw, 7rem)",
               color: "#1C1714",
               lineHeight: 1,
               whiteSpace: "nowrap",
