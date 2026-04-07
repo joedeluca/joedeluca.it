@@ -68,6 +68,7 @@ export default function AboutClient() {
             Sacred to the goddess of love. The voice of Zeus, interpreted by oracles who called themselves Peleiades — and then turned into stars. My constant companions at train stations and piazze.
           </p>
           <p style={pStyle}>Sacred. Stellar. Everyday.</p>
+          <p style={pStyle}>And if you'd like a complete, direct sentence. I like pigeons. A lot.</p>
           <div className="clear-both" />
         </div>
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { gsap } from "gsap"
 import PigeonSprite from "@/components/PigeonSprite"
 
@@ -14,6 +15,8 @@ const NAV_ITEMS = [
 ]
 
 export default function HeaderLogo() {
+  const pathname = usePathname()
+  const isHome = pathname === "/"
   const scrolled = useRef(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
@@ -84,8 +87,10 @@ export default function HeaderLogo() {
     gsap.fromTo(subtitleRef.current, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" })
   }, [isScrolled])
 
-  return (
-    <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "flex-end", gap: "0.75rem", width: "100%", paddingRight: "3rem" }}>
+  const innerStyle = { textDecoration: "none", display: "flex", alignItems: "flex-end", gap: "0.75rem", width: "100%", paddingRight: "3rem" } as React.CSSProperties
+
+  const inner = (
+    <>
       {isScrolled && (
         <div style={{ marginTop: "16px" }}>
           <PigeonSprite />
@@ -152,6 +157,12 @@ export default function HeaderLogo() {
           </div>
         )}
       </div>
-    </Link>
+    </>
+  )
+
+  return isHome ? (
+    <div style={innerStyle}>{inner}</div>
+  ) : (
+    <Link href="/" style={innerStyle}>{inner}</Link>
   )
 }
