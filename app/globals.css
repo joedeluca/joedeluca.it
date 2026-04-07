@@ -581,6 +581,20 @@ article.prose p:first-of-type::first-letter {
   to { transform: rotate(360deg); }
 }
 
+/* Gold button */
+.btn-gold {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1C1714;
+  text-decoration: none;
+  background-color: #C8B89A;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
 /* Home filter buttons: responsive font size */
 .home-filter-btn {
   font-size: 14px;
