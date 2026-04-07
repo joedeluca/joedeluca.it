@@ -538,9 +538,15 @@ html::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* Gold hover — beats Tailwind utilities and inline styles */
+/* Default hover — black */
 a:hover {
-  color: #F59E0B !important;
+  color: #1C1714 !important;
+}
+
+/* Outline button hover — black bg, gold text */
+.btn-outline:hover {
+  background-color: #1C1714 !important;
+  color: #C8B89A !important;
 }
 
 /* Drop cap — first letter of first article paragraph, Deseo font */
@@ -579,6 +585,20 @@ article.prose p:first-of-type::first-letter {
 
 @keyframes img-spin {
   to { transform: rotate(360deg); }
+}
+
+/* Outline button */
+.btn-outline {
+  display: inline-block;
+  font-family: "Graphik", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1C1714;
+  text-decoration: none;
+  border: 1px solid #1C1714;
+  padding: 0.5rem 1.25rem;
+  white-space: nowrap;
 }
 
 /* Gold button */

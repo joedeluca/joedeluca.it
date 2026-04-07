@@ -45,7 +45,7 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
             In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
             I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
           </p>
-          <Link href="/about" style={{ display: "inline-block", fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1C1714", textDecoration: "none", borderBottom: "1px solid #1C1714", alignSelf: "flex-end" }}>
+          <Link href="/about" className="btn-outline" style={{ alignSelf: "flex-end" }}>
             Continue →
           </Link>
         </div>
@@ -66,7 +66,7 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
               </Link>
             </article>
           ))}
-          <Link href="/blog" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#A8A5A0", textDecoration: "none" }}>
+          <Link href="/blog" className="btn-outline">
             All writing →
           </Link>
         </div>
@@ -83,7 +83,7 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
         <p style={{ maxWidth: "55ch" }}>
           Campaigns, brand voice, long-form, web copy. The full list, with context.
         </p>
-        <Link href="/services" style={{ display: "inline-block", marginTop: "1rem", fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#A8A5A0", textDecoration: "none" }}>
+        <Link href="/services" className="btn-outline" style={{ marginTop: "1rem" }}>
           View services →
         </Link>
       </div>
