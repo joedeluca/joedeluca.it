@@ -38,8 +38,9 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
             In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
             I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
           </p>
-          <Link href="/about" className="btn-outline" style={{ alignSelf: "flex-end" }}>
-            Continue          </Link>
+          <Link href="/about" className="btn-outline">
+            Continue
+          </Link>
         </div>
       </div>
 
@@ -57,8 +58,9 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
               </Link>
             </article>
           ))}
-          <Link href="/blog" className="btn-outline">
-            All writing          </Link>
+          <Link href="/blog" className="btn-outline" style={{ alignSelf: "flex-start" }}>
+            All writing
+          </Link>
         </div>
       </div>
 
