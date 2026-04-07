@@ -50,7 +50,7 @@ export default function AboutClient() {
           <p style={{ ...pStyle, marginTop: '1rem' }}>
             And that is what you have to inhabit to write good copy. Not the hunger — the compulsion. The thing that makes someone reach for something they can&rsquo;t entirely explain. That&rsquo;s where every purchase decision actually lives. Not in the rational mind. In the Hamburglar.
           </p>
-           <p style={{ ...pStyle, marginTop: '1rem' }}>The group creative director saw through me. She knew the only releveant question and I couldn't convince her that I had the answer. I absolutely could inhabit the Hamburglar. The difference now is that I would choose not to. The hamburglar was a glutton, a libertine. An artifact of a bygone era that should 100% stay bygone.</p>
+           <p style={{ ...pStyle, marginTop: '1rem' }}>The group creative director saw through me. She knew the only releveant question and I couldn't convince her that I had the answer. I absolutely could not inhabit the Hamburglar. The difference now is that I would choose not to. The hamburglar was a glutton, a libertine. An artifact of a bygone era that should 100% stay bygone.</p>
         </div>
 
         {/* Pigeons */}

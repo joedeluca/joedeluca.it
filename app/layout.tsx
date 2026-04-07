@@ -7,6 +7,7 @@ import MobileNav from "@/components/MobileNav"
 import SearchOverlay from "@/components/SearchOverlay"
 import PageTransition from "@/components/PageTransition"
 import HeaderHeightSetter from "@/components/HeaderHeightSetter"
+import { getSortedPostsData } from "@/lib/posts"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -30,6 +31,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const latestPosts = getSortedPostsData().slice(0, 5)
   return (
     <html lang="en">
       <head>
@@ -59,7 +61,7 @@ export default function RootLayout({
           </div>
           <div id="header-border" style={{ position: "absolute", bottom: 0, left: 0, height: "1px", width: "100%", backgroundColor: "#C8B89A", transform: "scaleX(0)", transformOrigin: "left center" }} />
           <div className="absolute top-4 right-6" style={{ zIndex: 60 }}>
-            <MobileNav />
+            <MobileNav latestPosts={latestPosts} />
           </div>
         </header>
 

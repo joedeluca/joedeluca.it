@@ -5,11 +5,13 @@ import { createPortal } from "react-dom"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { gsap } from "gsap"
+import type { MarkdownContent } from "@/lib/markdown"
 
 const links = [
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -17,7 +19,7 @@ const bottomLinks = [
   { href: "https://leobruno.it", label: "leobruno.it" },
 ]
 
-export default function MobileNav() {
+export default function MobileNav({ latestPosts = [] }: { latestPosts?: MarkdownContent[] }) {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
@@ -118,25 +120,55 @@ export default function MobileNav() {
               </button>
             </div>
 
-            <nav className="flex flex-col px-8 py-6 gap-8">
-              {links.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="nav-link"
-                  style={{
-                    fontFamily: '"Schnyder S", Georgia, serif',
-                    fontSize: 'clamp(2rem, 9vw, 3rem)',
-                    color: '#E8DCC8',
-                    opacity: 0.85,
-                    lineHeight: 1,
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            {/* Panel body — single column mobile, two columns desktop */}
+            <div className="flex px-8 pb-8 gap-16">
+              {/* Left: main nav */}
+              <nav className="flex flex-col py-6 gap-8">
+                {links.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="nav-link"
+                    style={{
+                      fontFamily: '"Schnyder S", Georgia, serif',
+                      fontSize: 'clamp(2rem, 9vw, 3rem)',
+                      color: '#E8DCC8',
+                      opacity: 0.85,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Right: latest posts — desktop only */}
+              {latestPosts.length > 0 && (
+                <div className="hidden sm:flex flex-col justify-center gap-4 py-6 border-l pl-16" style={{ borderColor: '#3A2E24' }}>
+                  <p style={{ fontFamily: '"Graphik", system-ui, sans-serif', fontSize: '0.6rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#5a4a3a', margin: 0 }}>
+                    The Latest
+                  </p>
+                  {latestPosts.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/posts/${post.slug}`}
+                      onClick={() => setOpen(false)}
+                      className="nav-link"
+                      style={{
+                        fontFamily: '"Schnyder S", Georgia, serif',
+                        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                        color: '#E8DCC8',
+                        opacity: 0.7,
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {post.titleShort ?? post.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="flex items-center gap-6 px-8 pb-8">
               {bottomLinks.map((link) => (
