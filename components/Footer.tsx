@@ -16,6 +16,7 @@ const linkStyle: React.CSSProperties = {
   padding: '5px 12px',
   fontSize: '12px',
   letterSpacing: '0.08em',
+  textDecoration: 'none',
 }
 
 const subRowStyle: React.CSSProperties = {
@@ -76,7 +77,7 @@ export default function Footer() {
           href="https://leobruno.it"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ ...subRowStyle, opacity: 0.5 }}
+          style={{ ...subRowStyle, opacity: 0.5, textDecoration: 'none' }}
         >
           leobruno.it
         </Link>
