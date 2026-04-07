@@ -50,7 +50,7 @@ export default function HeaderLogo() {
           },
         })
         if (headerInner) {
-          gsap.to(headerInner, { paddingTop: 0, paddingBottom: 0, duration: 0.4, ease: "power2.inOut" })
+          gsap.to(headerInner, { paddingTop: 0, paddingBottom: 16, duration: 0.4, ease: "power2.inOut" })
         }
       } else {
         if (border) gsap.to(border, { scaleX: 0, duration: 0.2, ease: "power2.in" })
