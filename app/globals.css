@@ -538,6 +538,15 @@ html::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* Mobile nav links */
+.nav-link {
+  text-decoration: none !important;
+}
+.nav-link:hover {
+  color: #C8B89A !important;
+  opacity: 1 !important;
+}
+
 /* Default hover — black */
 a:hover {
   color: #1C1714 !important;
