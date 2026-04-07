@@ -31,23 +31,24 @@ export default function HomeClient({ posts }: { posts: MarkdownContent[] }) {
   return (
     <>
       {/* Intro */}
-      <div className="pt-12 pb-12 border-b" style={{ borderColor: "#D8D0C4" }}>
+      <div className="pt-12 pb-12 border-b" style={{ borderColor: "#D8D0C4", display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
         <Image
           src="/oed.png"
           alt=""
           width={160}
           height={360}
-          className="float-left mr-6 mb-2"
+          className="flex-shrink-0"
           style={{ objectFit: "contain", maxHeight: "clamp(220px, 45vw, 360px)", width: "auto" }}
         />
-        <p style={{ maxWidth: "52ch", paddingTop: "1rem" }}>
-          In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
-          I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
-        </p>
-        <div className="clear-both" />
-        <Link href="/about" style={{ display: "inline-block", marginTop: "1rem", fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1C1714", textDecoration: "none", borderBottom: "1px solid #1C1714" }}>
-          Continue →
-        </Link>
+        <div style={{ paddingTop: "1rem", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "1rem" }}>
+          <p style={{ margin: 0 }}>
+            In my first interview for a copywriter job the group creative director looked at my poems and said, "These are lovely, but can you inhabit the Hamburglar?"
+            I said, I <em>think</em> so. I was smiling. She was not smiling. I hadn&apos;t suffered enough to get inside the Hamburglar and she smelled it immediately.
+          </p>
+          <Link href="/about" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#1C1714", textDecoration: "none", backgroundColor: "#C8B89A", padding: "0.5rem 1.25rem", borderRadius: "6px", whiteSpace: "nowrap" }}>
+            Continue →
+          </Link>
+        </div>
       </div>
 
       {/* Writing */}
