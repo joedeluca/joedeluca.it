@@ -7,8 +7,10 @@ import PigeonSprite from "@/components/PigeonSprite"
 
 const COLLAPSED_HEIGHT = 80
 const NAV_ITEMS = [
-  { label: "Craft", href: "/?filter=Craft" },
-  { label: "Marginalia", href: "/?filter=Marginalia" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export default function HeaderLogo() {
@@ -29,6 +31,8 @@ export default function HeaderLogo() {
 
       const border = document.getElementById("header-border")
 
+      const headerInner = document.getElementById("header-inner")
+
       if (past) {
         if (subtitleRef.current) {
           gsap.to(subtitleRef.current, { opacity: 0, duration: 0.15, ease: "power2.in" })
@@ -45,11 +49,17 @@ export default function HeaderLogo() {
             if (border) gsap.fromTo(border, { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" })
           },
         })
+        if (headerInner) {
+          gsap.to(headerInner, { paddingTop: 0, paddingBottom: 0, duration: 0.4, ease: "power2.inOut" })
+        }
       } else {
         if (border) gsap.to(border, { scaleX: 0, duration: 0.2, ease: "power2.in" })
         setIsScrolled(false)
         header.style.overflow = "hidden"
         gsap.to(header, { height: fullHeight, duration: 0.22, ease: "power2.out" })
+        if (headerInner) {
+          gsap.to(headerInner, { paddingTop: 32, paddingBottom: 32, duration: 0.22, ease: "power2.out" })
+        }
       }
     }
 
